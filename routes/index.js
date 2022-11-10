@@ -1,3 +1,21 @@
+const express = require("express");
+const { requiresAuth } = require("express-openid-connect");
+const router = express.Router();
+
+// req.isAuthenticated is provided from the auth router
+router.get("/", (req, res) => {
+  if (req.oidc.isAuthenticated()) {
+    res.send(
+      req.oidc.isAuthenticated() ? "Logged in but no callback 2?" : "Logged out"
+    );
+  }
+});
+
+router.get("/profile", requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
+
+
 // **users**
 // GET /all-users
 
@@ -33,3 +51,5 @@
 
 // **labels**
 // PUT /label/:id
+
+module.exports = router;

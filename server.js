@@ -1,35 +1,32 @@
-// **users**
-// GET /all-users
+/* eslint-disable */
+require('dotenv').config();
 
-// GET /user/:id
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-// POST /user
+const routes = require('./routes/index');
+const {auth} = require('express-openid-connect');
 
-// PUT /user/:id
+const app = express();
 
-// DELETE /delete-user/:id
+const port = process.env.PORT || 8080;
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.AUTH_SECRET,
+  baseURL: process.env.AUTH_BASE_URL,
+  clientID: process.env.AUTH_CLIENT_ID,
+  issuerBaseURL: process.env.AUTH_ISSUER_BASE_URL,
+};
 
-// **lists**
-// GET / all-lists
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use(cors());
 
-// GET /list/:id
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
 
-// POST /list
+app.use(routes);
 
-// PUT /list/:id
-
-// DELETE /list/:id
-
-// **items**
-// GET /all-items
-
-// GET /item/:id
-
-// GET /all-items-label/:id
-
-// PUT /item/:id
-
-// DELETE /item/:id
-
-// **labels**
-// PUT /label/:id
+app.listen(port, console.log(`Listening on port ${port}.`));
