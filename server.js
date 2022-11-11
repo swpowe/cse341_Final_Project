@@ -1,13 +1,15 @@
 /* eslint-disable */
-require('dotenv').config();
+const dotenv = require('dotenv').config();
 
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const connectDB = require('./config/db');
 
 const routes = require('./routes/index');
-const {auth} = require('express-openid-connect');
+const { auth } = require('express-openid-connect');
 
+connectDB();
 const app = express();
 
 const port = process.env.PORT || 8080;
@@ -20,7 +22,7 @@ const config = {
   issuerBaseURL: process.env.AUTH_ISSUER_BASE_URL,
 };
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
