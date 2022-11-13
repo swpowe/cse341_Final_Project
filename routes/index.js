@@ -7,6 +7,21 @@ const {
     createUser,
 } = require('../controllers/user.controller');
 
+const {
+  getAllLists,
+  getOnelList,
+  createList,
+  updateList,
+  deleteList,
+  getAllItems,
+  getItem,
+  getItemsByLabel,
+  updateItem,
+  deleteItem,
+  addLabelToItem,
+  getLabels
+} = require('../controllers/todo.controller');
+
 
 // req.isAuthenticated is provided from the auth router
 router.get("/", (req, res) => {

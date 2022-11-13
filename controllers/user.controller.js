@@ -6,3 +6,10 @@ const createUser = async (req, res) => {
 };
 
 module.exports = { createUser };
+
+// **users**
+// GET /all-users
+
+// GET /user/:id
+
+// POST /user
