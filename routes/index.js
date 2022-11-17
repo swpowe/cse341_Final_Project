@@ -2,6 +2,9 @@ const express = require("express");
 const { requiresAuth } = require("express-openid-connect");
 const router = express.Router();
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../swagger-output.json');
+
 // controllers
 const {
     createUser,
@@ -22,6 +25,9 @@ const {
   getLabels
 } = require('../controllers/todo.controller');
 
+// swagger docs
+router.use('/api-docs', swaggerUi.serve);
+router.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 // req.isAuthenticated is provided from the auth router
 router.get("/", (req, res) => {
