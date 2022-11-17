@@ -1,3 +1,8 @@
 //localhost
 GET http://localhost:8080/create-user
 ###
+
+GET http://localhost:8080/get-lists
+###
+
+POST http://localhost:8080/create-list

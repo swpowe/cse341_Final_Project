@@ -9,7 +9,7 @@ const {
 
 const {
   getAllLists,
-  getOnelList,
+  getOneList,
   createList,
   updateList,
   deleteList,
@@ -53,10 +53,13 @@ router.get('/create-user', requiresAuth(), createUser);
 
 // **lists**
 // GET / all-lists
+router.get('/all-lists', getAllLists); //!! Need to require Auth()
 
 // GET /list/:id
+router.get('/list', getOneList);
 
 // POST /list
+router.post('/create-list', createList); //!! Need to require Auth()
 
 // PUT /list/:id
 

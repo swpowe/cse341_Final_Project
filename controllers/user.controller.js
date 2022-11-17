@@ -1,3 +1,5 @@
+const User = require('../models/Users');
+
 // take current Auth0 user and create a user for To Do App
 const createUser = async (req, res) => {
   console.log("create user controller");
