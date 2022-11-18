@@ -11,6 +11,13 @@
     "http"
   ],
   "paths": {
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
     "/": {
       "get": {
         "description": "",
@@ -33,8 +40,36 @@
         }
       }
     },
-    "/create-user": {
+    "/all-users": {
       "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/user": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/create-user": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/modify-user": {
+      "put": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/delete-user": {
+      "delete": {
         "description": "",
         "parameters": [],
         "responses": {}
@@ -80,6 +115,60 @@
             "description": "Bad Request"
           }
         }
+      }
+    },
+    "/modify-list": {
+      "put": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/delete-list": {
+      "delete": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/all-items": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/item": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/items-by-label": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/modify-item": {
+      "put": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      },
+      "delete": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/modify-label": {
+      "put": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
       }
     }
   }

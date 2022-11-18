@@ -8,6 +8,10 @@ const swaggerDocument = require('../swagger-output.json');
 // controllers
 const {
     createUser,
+    getUsers,
+    getUser,
+    modifyUser,
+    deleteUser
 } = require('../controllers/user.controller');
 
 const {
@@ -47,42 +51,54 @@ router.get("/profile", requiresAuth(), (req, res) => {
 
 // **users**
 // GET /all-users
+router.get('/all-users', requiresAuth(), getUsers);
 
 // GET /user/:id
+router.get('/user', requiresAuth(), getUser);
 
 // POST /user
-router.get('/create-user', requiresAuth(), createUser);
+router.post('/create-user', requiresAuth(), createUser);
 
 // PUT /user/:id
+router.put('/modify-user', requiresAuth(), modifyUser);
 
 // DELETE /delete-user/:id
+router.delete('/delete-user', requiresAuth(), deleteUser);
 
 // **lists**
 // GET / all-lists
 router.get('/all-lists', getAllLists); //!! Need to require Auth()
 
 // GET /list/:id
-router.get('/list', getOneList);
+router.get('/list', getOneList); //!! Need to require Auth()
 
 // POST /list
 router.post('/create-list', createList); //!! Need to require Auth()
 
 // PUT /list/:id
+router.put('/modify-list', updateList); //!! Need to require Auth()
 
 // DELETE /list/:id
+router.delete('/delete-list', deleteList); //!! Need to require Auth()
 
 // **items**
 // GET /all-items
+router.get('/all-items', requiresAuth(), getAllItems);
 
 // GET /item/:id
+router.get('/item', requiresAuth(), getItem);
 
 // GET /all-items-label/:id
+router.get('/items-by-label', requiresAuth(), getItemsByLabel);
 
 // PUT /item/:id
+router.put('/modify-item', requiresAuth(), updateItem);
 
 // DELETE /item/:id
+router.delete('/modify-item', requiresAuth(), deleteItem);
 
 // **labels**
 // PUT /label/:id
+router.put('/modify-label', requiresAuth(), ); //!! Needs Callback Function
 
 module.exports = router;
