@@ -2,7 +2,8 @@
   "name": "cse341_backenddev",
   "version": "1.0.0",
   "description": "",
-    "scripts": {
+  "main": ".eslintrc.js",
+  "scripts": {
     "start": "nodemon server.js",
     "swagger-autogen": "node ./swagger.js"
   },
@@ -33,6 +34,7 @@
   "devDependencies": {
     "cors": "^2.8.5",
     "eslint": "^8.27.0",
+    "eslint-config-google": "^0.14.0",
     "swagger-autogen": "^2.22.0",
     "swagger-ui-express": "^4.6.0"
   }
