@@ -6,8 +6,8 @@ describe('Sample Test', () => {
         const result = await db();
         expect(result).toBe(0);
     })
-    test('time out test', () => {
-        const result = db();
-        setTimeout((result) => {expect(result).toBe(0)}, 3000);
-    })
+    // test('time out test', () => {
+    //     const result = db();
+    //     setTimeout((result) => {expect(result).toBe(0)}, 3000);
+    // })
 })
