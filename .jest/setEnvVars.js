@@ -1,1 +1,0 @@
-process.env.MONGO_URI = 'mongodb+srv://quarshie:MongoDB1995@cluster0.tq122vk.mongodb.net/Todo?retryWrites=true&w=majority'
