@@ -46,13 +46,13 @@ const createList = async (req, res) => {
     //!! swap hard coded for req body
     console.log('Create List');
 
-    const list = {
-        listName: 'New List',
-    };
+    // const list = {
+    //     // listName: 'New List',
+    // };
 
     try {
         await mongoose.connect(process.env.MONGO_URI);
-        const resultList = await List.create(list);
+        const resultList = await List.create(req.body.list);
         res.status(201).send(`<h1>Success! ${JSON.stringify(resultList)}</h1>`)
     } catch(error) {
         console.log(`ERROR: ${error}`);
