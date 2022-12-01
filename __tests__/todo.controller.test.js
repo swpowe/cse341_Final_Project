@@ -1,16 +1,16 @@
 const {
-  getAllLists,
-  getOneList,
-  createList,
-  updateList,
-  deleteList,
-  getAllItems,
-  getItem,
-  getItemsByLabel,
-  updateItem,
-  deleteItem,
-  addLabelToItem,
-  getLabels,
+  getAllLists, // Spencer
+  getOneList, // Spencer
+  createList, // Spencer
+  updateList, // Joaquin
+  deleteList, // Joaquin
+  getAllItems, // Joaquin
+  getItem, // Joaquin
+  getItemsByLabel, // Ammon
+  updateItem, // Ammon
+  deleteItem, // Ammon
+  addLabelToItem, // Ammon
+  getLabels, // Ammon
 } = require("../controllers/todo.controller");
 
 let req, res, send;
