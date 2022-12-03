@@ -1,5 +1,5 @@
-const {default: mongoose} = require('mongoose');
-const {ObjectId} = require('mongodb');
+const { default: mongoose } = require('mongoose');
+const { ObjectId } = require('mongodb');
 
 const Label = require('../models/Labels');
 const List = require('../models/Lists');
@@ -18,7 +18,7 @@ const getAllLists = async (req, res) => {
             listArray.push(JSON.stringify(list));
         }
         res.status(201).send(`<h1>Success! ${listArray}</h1>`)
-    } catch(error) {
+    } catch (error) {
         console.log(`ERROR: ${error}`);
         res.status(400).send(`<h1>ERROR: ${error}</h1>`);
     }
@@ -33,9 +33,9 @@ const getOneList = async (req, res) => {
 
     try {
         await mongoose.connect(process.env.MONGO_URI);
-        const list = await List.findOne({_id: new ObjectId(id)});
+        const list = await List.findOne({ _id: new ObjectId(id) });
         res.status(201).send(`<h1>Success! ${list}</h1>`);
-    } catch(error) {
+    } catch (error) {
         console.log(`ERROR: ${error}`);
         res.status(400).send(`<h1>ERROR: ${error}</h1>`);
     }
@@ -54,7 +54,7 @@ const createList = async (req, res) => {
         await mongoose.connect(process.env.MONGO_URI);
         const resultList = await List.create(req.body.list);
         res.status(201).send(`<h1>Success! ${JSON.stringify(resultList)}</h1>`)
-    } catch(error) {
+    } catch (error) {
         console.log(`ERROR: ${error}`);
         res.status(400).send(`<h1>ERROR: ${error}</h1>`);
     }
@@ -62,12 +62,34 @@ const createList = async (req, res) => {
 
 // PUT /list/:id
 const updateList = async (req, res) => {
-    console.log('Update List');
+    try {
+        const id = req.params.id;
+        const list = await List.findByIdAndUpdate(id, req.body, { useFindAndModify: false });
+        if (!list) {
+            return res.status(404).send(`<h1>Cannot update list with id=${JSON.stringify(id)}</h1>`);
+        } else {
+            res.status(201).send(`<h1>Successfully Updated! ${JSON.stringify(list)}</h1>`)
+        }
+    } catch (error) {
+        console.log(`ERROR: ${error}`);
+        res.status(500).send(`<h1>ERROR: ${error}</h1>`);
+    }
 };
 
 // DELETE /list/:id
 const deleteList = async (req, res) => {
-    console.log('Delete List');
+    try {
+        const id = req.params.id;
+        const removedList = await List.findByIdAndRemove(id);
+        if (!removedList) {
+            return res.status(404).send(`<h1>Cannot delete list with id=${JSON.stringify(id)}</h1>`);
+        } else {
+            res.status(201).send(`<h1>Successfully removed! ${JSON.stringify(removedList)}</h1>`)
+        }
+    } catch (error) {
+        console.log(`ERROR: ${error}`);
+        res.status(500).send(`<h1>ERROR: ${error}</h1>`);
+    }
 };
 
 // **items**

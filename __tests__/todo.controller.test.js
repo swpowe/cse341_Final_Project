@@ -1,23 +1,23 @@
 const {
-  getAllLists, // Spencer
-  getOneList, // Spencer
-  createList, // Spencer
-  updateList, // Joaquin
-  deleteList, // Joaquin
-  getAllItems, // Joaquin
-  getItem, // Joaquin
-  getItemsByLabel, // Ammon
-  updateItem, // Ammon
-  deleteItem, // Ammon
-  addLabelToItem, // Ammon
-  getLabels, // Ammon
+    getAllLists, // Spencer
+    getOneList, // Spencer
+    createList, // Spencer
+    updateList, // Joaquin
+    deleteList, // Joaquin
+    getAllItems, // Joaquin
+    getItem, // Joaquin
+    getItemsByLabel, // Ammon
+    updateItem, // Ammon
+    deleteItem, // Ammon
+    addLabelToItem, // Ammon
+    getLabels, // Ammon
 } = require("../controllers/todo.controller");
 
 let req, res, send;
 
 beforeEach(() => {
     req = {},
-    send = jest.fn();
+        send = jest.fn();
     res = {
         status: jest.fn(() => ({
             send,
@@ -32,7 +32,7 @@ describe('createList()', () => {
         // beforeEach(() => {
         //     // req. //!! set req and response object 
         // });
-    
+
         describe('and the data is valid', () => {
             beforeEach(() => {
                 req.body = {
@@ -45,14 +45,10 @@ describe('createList()', () => {
 
             it('responds with 201', async () => {
                 await createList(req, res);
-    
+
                 expect(res.status).toHaveBeenCalledWith(201);
             });
-
         });
-
-        
-
         // it('', () => {});
-    }); 
+    });
 });
