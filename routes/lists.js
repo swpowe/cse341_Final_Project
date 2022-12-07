@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const listsController = require("../controllers/list.controller")
+const listsController = require("../controllers/lists.controller")
 
 router.get('/', listsController.getLists)
 router.get('/:id', listsController.getSingleList)

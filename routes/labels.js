@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const labelsController = require("../controllers/label.controller")
+const labelsController = require("../controllers/labels.controller")
 
 router.get('/', labelsController.getLabels)
 router.get('/:id', labelsController.getSingleLabel)
