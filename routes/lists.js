@@ -1,34 +1,38 @@
-const express = require("express");
+const express = require("express")
+const router = express.Router()
+const listsController = require("../controllers/lists.controller")
 
-const todoController = require("../controllers/todo.controller");
+router.get('/', listsController.getLists)
+router.get('/:id', listsController.getSingleList)
+router.post('/', listsController.createList)
+router.put('/:id', listsController.updateList)
+router.delete('/:id', listsController.deleteList)
 
-const router = express.Router();
+// // **lists**
+// router.get("/all-lists", todoController.getAllLists);
 
-// **lists**
-router.get("/all-lists", todoController.getAllLists);
+// router.get("/list/:id", todoController.getOneList);
 
-router.get("/list/:id", todoController.getOneList);
+// router.post("/list", todoController.createList);
 
-router.post("/list", todoController.createList);
+// router.put("/list/:id", todoController.updateList);
 
-router.put("/list/:id", todoController.updateList);
+// router.delete("/list/:id", todoController.deleteList);
 
-router.delete("/list/:id", todoController.deleteList);
+// // **items**
+// router.get("/all-items", todoController.getAllItems);
 
-// **items**
-router.get("/all-items", todoController.getAllItems);
+// router.get("/item/:id", todoController.getItem);
 
-router.get("/item/:id", todoController.getItem);
+// router.get("/all-items-label/:id", todoController.getItemsByLabel);
 
-router.get("/all-items-label/:id", todoController.getItemsByLabel);
+// router.put("/item/:id", todoController.updateItem);
 
-router.put("/item/:id", todoController.updateItem);
+// router.delete("/item/:id", todoController.deleteItem);
 
-router.delete("/item/:id", todoController.deleteItem);
+// // **labels**
+// router.get("/label/:id", todoController.getLabels);
 
-// **labels**
-router.get("/label/:id", todoController.getLabels);
-
-router.post("/label", todoController.addLabelToItem);
+// router.post("/label", todoController.addLabelToItem);
 
 module.exports = router;
