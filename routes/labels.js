@@ -2,10 +2,12 @@ const express = require("express")
 const router = express.Router()
 const labelsController = require("../controllers/labels.controller")
 
-router.get('/', labelsController.getLabels)
-router.get('/:id', labelsController.getSingleLabel)
-router.post('/', labelsController.createLabel)
-router.put('/:id', labelsController.updateLabel)
-router.delete('/:id', labelsController.deleteLabel)
+const {requiresAuth} = require('express-openid-connect');
+
+router.get('/', requiresAuth(), labelsController.getLabels)
+router.get('/:id', requiresAuth(), labelsController.getSingleLabel)
+router.post('/', requiresAuth(), labelsController.createLabel)
+router.put('/:id', requiresAuth(), labelsController.updateLabel)
+router.delete('/:id', requiresAuth(), labelsController.deleteLabel)
 
 module.exports = router;
