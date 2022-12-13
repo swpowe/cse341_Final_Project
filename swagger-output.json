@@ -5,7 +5,7 @@
     "description": "API that allows for a classic To Do App front end.",
     "version": "1.0.0"
   },
-  "host": "final-project-edpl.onrender.com/",
+  "host": "final-project-edpl.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
