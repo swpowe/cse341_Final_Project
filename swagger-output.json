@@ -5,10 +5,10 @@
     "description": "API that allows for a classic To Do App front end.",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "https://final-project-edpl.onrender.com/",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api-docs": {
